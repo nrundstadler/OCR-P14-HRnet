@@ -17,10 +17,10 @@ export const { addEmployee, addEmployees, removeAllEmployees } =
   employeesSlice.actions;
 
 export const employeesSelectors = employeesAdapter.getSelectors(
-  (state) => state.employee,
+  (state) => state.employees,
 );
 
 export const selectAllEmployees = (state) =>
-  employeesSelectors.selectAll(state.employees);
+  employeesSelectors.selectAll(state);
 
 export default employeesSlice;

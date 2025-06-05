@@ -1,11 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { useDocumentTitle } from "./hooks/useDocumentTitle";
 import { getTitleByPath } from "./constants/navigations";
-import DarkModeSync from "./components/DarkModeSync";
-
-import Background from "./components/Background";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import DarkModeSync from "./components/system/DarkModeSync";
+import Background from "./components/layout/Background";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import { Outlet } from "react-router-dom";
 
 function App() {

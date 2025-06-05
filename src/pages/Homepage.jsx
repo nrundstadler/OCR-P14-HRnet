@@ -1,7 +1,7 @@
 import { NAV_LINKS } from "../constants/navigations";
 import { Link } from "react-router-dom";
 
-function Homepage() {
+const Homepage = () => {
   return (
     <div className="py-4">
       <div className="my-9 text-center">
@@ -34,6 +34,6 @@ function Homepage() {
       </div>
     </div>
   );
-}
+};
 
 export default Homepage;
