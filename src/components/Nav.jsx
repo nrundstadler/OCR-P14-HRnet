@@ -17,7 +17,7 @@ const Nav = ({ isMenuMobileOpen, setIsMenuMobileOpen }) => {
 
       {/* Navigation mobile & desktop */}
       <nav
-        className={`fixed top-18 right-0 z-50 h-[calc(100vh-4.5rem)] overflow-y-auto bg-white p-6 transition-transform duration-300 ease-out md:static md:top-auto md:right-auto md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 dark:bg-zinc-700 ${isMenuMobileOpen ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
+        className={`fixed top-18 right-0 z-50 h-[calc(100vh-4.5rem)] overflow-y-auto bg-white p-6 transition-transform duration-300 ease-out md:static md:top-auto md:right-auto md:h-auto md:w-auto md:transform-none md:bg-transparent md:p-0 dark:bg-zinc-700 md:dark:bg-transparent ${isMenuMobileOpen ? "translate-x-0" : "translate-x-full"} md:translate-x-0`}
         id="main-menu"
         aria-label="Main navigation"
       >
