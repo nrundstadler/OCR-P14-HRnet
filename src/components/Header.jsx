@@ -1,5 +1,6 @@
 import { SunMoon, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const Header = () => {
@@ -24,12 +25,12 @@ const Header = () => {
       }`}
     >
       {/* Logo and site name */}
-      <div className="flex items-center gap-x-1">
+      <Link className="flex items-center gap-x-1" to="/" aria-label="Home">
         <img src="/logo.png" alt="Logo HRnet" className="mr-4 h-12 w-12" />
         <span className="text-xl font-bold text-zinc-600 dark:text-zinc-300">
           Wealth Health
         </span>
-      </div>
+      </Link>
 
       {/* Div whith btn Dark Mode - Separator - Menu - reordered on desktop */}
       <div className="flex items-center gap-5 text-lg md:flex-row-reverse">

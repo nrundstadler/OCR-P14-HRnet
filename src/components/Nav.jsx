@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { NAV_LINKS } from "../constants/navigations";
 
 const Nav = ({ isMenuMobileOpen, setIsMenuMobileOpen }) => {
@@ -22,14 +23,14 @@ const Nav = ({ isMenuMobileOpen, setIsMenuMobileOpen }) => {
       >
         <ul className="flex flex-col gap-8 md:flex-row">
           {NAV_LINKS.map((link) => (
-            <li key={link.name}>
-              <a
+            <li key={link.to}>
+              <NavLink
                 className="mr-6 block py-2 text-zinc-700 transition hover:text-zinc-950 md:mr-0 md:py-0 dark:text-zinc-300 dark:hover:text-zinc-400"
-                href={link.href}
+                to={link.to}
                 onClick={() => isMenuMobileOpen && setIsMenuMobileOpen(false)}
               >
                 {link.name}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>

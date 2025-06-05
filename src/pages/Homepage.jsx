@@ -1,4 +1,5 @@
 import { NAV_LINKS } from "../constants/navigations";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -20,14 +21,14 @@ function Homepage() {
           {NAV_LINKS.map((link) => {
             const Icon = link.icon;
             return (
-              <a
-                key={link.href}
-                href={link.href}
+              <Link
+                key={link.to}
+                to={link.to}
                 className="ui-card flex h-40 flex-col items-center justify-center gap-5 p-4 text-center lg:h-60 lg:w-60"
               >
                 {Icon && <Icon className="h-20 w-20" />}
                 <h2 className="text-xl">{link.name}</h2>
-              </a>
+              </Link>
             );
           })}
         </div>
