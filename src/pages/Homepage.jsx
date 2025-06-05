@@ -6,15 +6,14 @@ function Homepage() {
     <div className="py-4">
       <div className="my-9 text-center">
         <h1 className="text-4xl">
-          Bienvenue sur{" "}
+          Welcome to{" "}
           <span className="inline-block">
             HRnet
             <div className="from-primary-light dark:from-primary -mt-3 h-3 w-full bg-gradient-to-r to-transparent"></div>
           </span>
         </h1>
         <p className="mt-2 text-lg">
-          Votre application pour gérer les dossiers des employés avec
-          efficacité.
+          Your application to efficiently manage employee records.
         </p>
 
         <div className="my-17 flex flex-col justify-center gap-8 lg:flex-row lg:gap-16">
