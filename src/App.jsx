@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useDocumentTitle } from "./hooks/useDocumentTitle";
 import { getTitleByPath } from "./constants/navigations";
+import DarkModeSync from "./components/DarkModeSync";
+
 import Background from "./components/Background";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <>
+      <DarkModeSync />
       <Background />
       <div className="flex min-h-screen flex-col">
         <Header />

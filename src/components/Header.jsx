@@ -1,19 +1,16 @@
 import { SunMoon, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toggleDarkMode } from "../store/slices/darkModeSlice";
 import Nav from "./Nav";
 
 const Header = () => {
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-    setIsDarkMode(!isDarkMode);
+  const dispatch = useDispatch();
+  const handleToggleDarkMode = () => {
+    dispatch(toggleDarkMode());
   };
 
   return (
@@ -39,7 +36,7 @@ const Header = () => {
           type="button"
           className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition hover:bg-zinc-700/5 dark:hover:bg-zinc-400/20"
           aria-label="Toggle dark mode"
-          onClick={toggleDarkMode}
+          onClick={handleToggleDarkMode}
         >
           <SunMoon className="h-5 w-5 stroke-zinc-700 dark:stroke-zinc-300" />
         </button>
