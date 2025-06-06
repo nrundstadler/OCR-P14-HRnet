@@ -1,4 +1,4 @@
-import { NAV_LINKS } from "../constants/navigations";
+import { NAV_LINKS } from "@/constants/navigations";
 import { Link } from "react-router-dom";
 
 const Homepage = () => {

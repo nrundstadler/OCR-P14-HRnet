@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { NAV_LINKS } from "../../../constants/navigations";
+import { NAV_LINKS } from "@/constants/navigations";
 
 const Nav = ({ isMenuMobileOpen, setIsMenuMobileOpen }) => {
   return (
