@@ -1,17 +1,16 @@
 import { SunMoon, Menu, X } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { toggleDarkMode } from "@/store/slices/darkModeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  toggleDarkMode,
+  setMenuMobileOpen,
+  selectMenuMobileOpen,
+} from "@/store/slices/uiSlice";
 import Nav from "./Nav";
 
 const Header = () => {
-  const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
-
+  const isMenuMobileOpen = useSelector(selectMenuMobileOpen);
   const dispatch = useDispatch();
-  const handleToggleDarkMode = () => {
-    dispatch(toggleDarkMode());
-  };
 
   return (
     <div
@@ -29,14 +28,14 @@ const Header = () => {
         </span>
       </Link>
 
-      {/* Div whith btn Dark Mode - Separator - Menu - reordered on desktop */}
+      {/* Div with btn Dark Mode - Separator - Menu - reordered on desktop */}
       <div className="flex items-center gap-5 text-lg md:flex-row-reverse">
         {/* Dark mode button  */}
         <button
           type="button"
           className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md transition hover:bg-zinc-700/5 dark:hover:bg-zinc-400/20"
           aria-label="Toggle dark mode"
-          onClick={handleToggleDarkMode}
+          onClick={() => dispatch(toggleDarkMode())}
         >
           <SunMoon className="h-5 w-5 stroke-zinc-700 dark:stroke-zinc-300" />
         </button>
@@ -51,7 +50,7 @@ const Header = () => {
           aria-label={isMenuMobileOpen ? "Close main menu" : "Open main menu"}
           aria-expanded={isMenuMobileOpen}
           aria-controls="main-menu"
-          onClick={() => setIsMenuMobileOpen(!isMenuMobileOpen)}
+          onClick={() => dispatch(setMenuMobileOpen(!isMenuMobileOpen))}
         >
           {isMenuMobileOpen ? (
             <X className="h-5 w-5 stroke-zinc-700 dark:stroke-zinc-300" />
@@ -61,10 +60,7 @@ const Header = () => {
         </button>
 
         {/* Navigation component */}
-        <Nav
-          isMenuMobileOpen={isMenuMobileOpen}
-          setIsMenuMobileOpen={setIsMenuMobileOpen}
-        />
+        <Nav />
       </div>
     </div>
   );

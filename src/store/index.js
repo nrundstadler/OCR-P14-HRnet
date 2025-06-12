@@ -12,7 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import employeesSlice from "./slices/employeesSlice";
-import darkModeSlice from "./slices/darkModeSlice";
+import uiSlice from "./slices/uiSlice";
 
 const persistConfig = {
   key: "root",
@@ -21,7 +21,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   employees: employeesSlice.reducer,
-  darkMode: darkModeSlice.reducer,
+  ui: uiSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
