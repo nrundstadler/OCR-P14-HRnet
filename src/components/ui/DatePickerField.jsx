@@ -4,20 +4,14 @@ import { format } from "date-fns";
 import { Calendar } from "lucide-react";
 import "react-day-picker/dist/style.css";
 
-const DatePickerField = ({
-  id,
-  label,
-  value,
-  onChange,
-  className = "",
-  ...props
-}) => {
+const DatePickerField = ({ id, label, value, onChange, error, ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const calendarRef = useRef(null);
 
   const baseInputClasses =
-    "w-full rounded-lg border px-3 py-2 transition-colors outline-none";
+    "w-full rounded-lg border px-3 py-2 transition-colors outline-none" +
+    (error ? " border-red-800" : "");
   const focusInputClasses = "ring-3 ring-primary/30 dark:ring-primary/70";
   const inputClasses = `${baseInputClasses} ${isOpen ? focusInputClasses : "focus:" + focusInputClasses}`;
 
@@ -62,7 +56,7 @@ const DatePickerField = ({
   const defaultClassNames = getDefaultClassNames();
 
   return (
-    <div className={className}>
+    <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
         {label}
       </label>
@@ -83,16 +77,15 @@ const DatePickerField = ({
               ? "Selected date: " + format(value, "dd MMMM yyyy")
               : "No date selected"
           }
+          aria-invalid={!!error}
+          aria-describedby={error ? `${id}-error` : undefined}
           readOnly
           {...props}
         />
-
-        {/* Icône de calendrier */}
         <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
           <Calendar className="h-5 w-5" />
         </span>
 
-        {/* Calendrier */}
         {isOpen && (
           <div
             ref={calendarRef}
@@ -129,6 +122,11 @@ const DatePickerField = ({
           </div>
         )}
       </div>
+      {error && (
+        <p id={`${id}-error`} className="mt-1 text-sm text-red-800">
+          {error}
+        </p>
+      )}
     </div>
   );
 };
