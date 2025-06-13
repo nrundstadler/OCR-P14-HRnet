@@ -21,5 +21,3 @@ export const uiSlice = createSlice({
 export const { toggleDarkMode, setMenuMobileOpen } = uiSlice.actions;
 export const selectDarkMode = (state) => state.ui.isDarkModeEnabled;
 export const selectMenuMobileOpen = (state) => state.ui.isMenuMobileOpen;
-
-export default uiSlice;

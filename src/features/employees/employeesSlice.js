@@ -15,12 +15,8 @@ export const employeesSlice = createSlice({
 
 export const { addEmployee, addEmployees, removeAllEmployees } =
   employeesSlice.actions;
-
 export const employeesSelectors = employeesAdapter.getSelectors(
   (state) => state.employees,
 );
-
 export const selectAllEmployees = (state) =>
   employeesSelectors.selectAll(state);
-
-export default employeesSlice;

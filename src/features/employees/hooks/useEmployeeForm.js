@@ -1,9 +1,14 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { format } from "date-fns";
-import { employeeSchema } from "@/validation/employeeSchema";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { employeeSchema } from "../validation/employeeSchema";
+import { formatEmployeeData } from "../utils/employeeFormatters";
+import { addEmployee } from "../employeesSlice";
 
 export const useEmployeeForm = () => {
+  const dispatch = useDispatch(); // Ajoute ceci
+
   const {
     handleSubmit,
     control,
@@ -25,20 +30,11 @@ export const useEmployeeForm = () => {
     },
   });
 
-  const formatEmployeeData = (data) => ({
-    ...data,
-    dateOfBirth: data.dateOfBirth
-      ? format(data.dateOfBirth, "yyyy-MM-dd")
-      : null,
-    startDate: data.startDate ? format(data.startDate, "yyyy-MM-dd") : null,
-    department: data.department?.value || null,
-    state: data.state?.value || null,
-  });
-
   const onSubmit = handleSubmit((data) => {
     const formattedData = formatEmployeeData(data);
 
-    console.log(formattedData);
+    const employeeWithId = { id: nanoid(), ...formattedData };
+    dispatch(addEmployee(employeeWithId));
 
     reset();
 
