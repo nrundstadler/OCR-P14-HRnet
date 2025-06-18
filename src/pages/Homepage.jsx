@@ -1,5 +1,5 @@
-import { NAV_LINKS } from "@/constants/navigations";
 import { Link } from "react-router-dom";
+import { NAV_LINKS } from "@/features/core/";
 
 const Homepage = () => {
   return (

@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { employeeSchema } from "../validation/employeeSchema";
 import { formatEmployeeData } from "../utils/employeeFormatters";
-import { addEmployee } from "../employeesSlice";
+import { addEmployee } from "../slices/employeesSlice";
 
 export const useEmployeeForm = () => {
-  const dispatch = useDispatch(); // Ajoute ceci
+  const dispatch = useDispatch();
 
   const {
     handleSubmit,

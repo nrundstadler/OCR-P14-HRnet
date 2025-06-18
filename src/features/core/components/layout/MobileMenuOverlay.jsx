@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setMenuMobileOpen,
-  selectMenuMobileOpen,
-} from "@/store/slices/uiSlice";
+import { setMenuMobileOpen, selectMenuMobileOpen } from "../../slices/uiSlice";
 
 const MobileMenuOverlay = () => {
   const isMenuMobileOpen = useSelector(selectMenuMobileOpen);

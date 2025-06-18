@@ -11,8 +11,9 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import { employeesSlice } from "@/features/employees/";
-import { uiSlice } from "./slices/uiSlice";
+// Import slices
+import { employeesSlice } from "./features/employees";
+import { uiSlice } from "./features/core/";
 
 const persistConfig = {
   key: "root",

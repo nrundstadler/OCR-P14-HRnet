@@ -1,11 +1,15 @@
 import { useLocation, Outlet } from "react-router-dom";
-import { useDocumentTitle } from "./hooks/useDocumentTitle";
-import { getTitleByPath } from "./constants/navigations";
-import DarkModeSync from "./components/system/DarkModeSync";
-import Background from "./components/layout/Background";
-import Header from "./components/layout/Header";
-import MobileMenuOverlay from "./components/layout/MobileMenuOverlay";
-import Footer from "./components/layout/Footer";
+import {
+  useDocumentTitle,
+  getTitleByPath,
+  // System Components
+  DarkModeSync,
+  // Layout Components
+  Background,
+  Header,
+  MobileMenuOverlay,
+  Footer,
+} from "./features/core/";
 
 function App() {
   // Update the document title based on the current route

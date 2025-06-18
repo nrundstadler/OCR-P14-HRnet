@@ -1,14 +1,15 @@
 import { Controller } from "react-hook-form";
-import { states } from "@/data/states";
-import { departments } from "@/data/departments";
-import formatForSelect from "@/utils/formatForSelect";
+import { formatForSelect } from "@/utils";
+import { states } from "../data/states";
+import { departments } from "../data/departments";
 import { useEmployeeForm } from "../hooks/useEmployeeForm";
 import {
+  // UI Components
   Button,
   InputField,
   SelectField,
   DatePickerField,
-} from "@/components/ui";
+} from "@/components/ui/";
 
 const EmployeeForm = () => {
   const stateOptions = formatForSelect(states, "abbreviation", "name");

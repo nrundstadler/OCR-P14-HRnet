@@ -1,9 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import Homepage from "./pages/Homepage/";
-import CreateEmployee from "./pages/CreateEmployee/";
-import EmployeeList from "./pages/EmployeeList/";
-import Settings from "./pages/Settings/";
+import { Homepage, CreateEmployee, EmployeeList, Settings } from "./pages";
 
 export const router = createBrowserRouter([
   {

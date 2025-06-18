@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { selectDarkMode } from "@/store/slices/uiSlice";
+import { selectDarkMode } from "../../slices/uiSlice";
 
 const DarkModeSync = () => {
   const isDarkMode = useSelector(selectDarkMode);

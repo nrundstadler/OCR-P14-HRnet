@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { NAV_LINKS } from "@/constants/navigations";
 import {
   setMenuMobileOpen,
   selectMenuMobileOpen,
-} from "@/store/slices/uiSlice";
+} from "../../../slices/uiSlice";
+import { NAV_LINKS } from "../../../constants/navigations";
 
 const Nav = () => {
   const isMenuMobileOpen = useSelector(selectMenuMobileOpen);

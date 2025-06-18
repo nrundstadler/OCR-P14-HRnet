@@ -1,12 +1,13 @@
 import { SunMoon, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+
+import Nav from "./Nav";
 import {
   toggleDarkMode,
   setMenuMobileOpen,
   selectMenuMobileOpen,
-} from "@/store/slices/uiSlice";
-import Nav from "./Nav";
+} from "../../../slices/uiSlice";
 
 const Header = () => {
   const isMenuMobileOpen = useSelector(selectMenuMobileOpen);
