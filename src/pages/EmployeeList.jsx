@@ -2,11 +2,16 @@ import { useMemo, useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   useReactTable,
+  getFilteredRowModel,
   getCoreRowModel,
   flexRender,
 } from "@tanstack/react-table";
 import { ColumnsIcon, ChevronDown, Check, Eye } from "lucide-react";
-import { selectAllEmployees } from "@/features/employees/";
+import { selectAllEmployees } from "../features/employees/slices/employeesSlice";
+import {
+  getDepartmentLabel,
+  getStateLabel,
+} from "../features/employees/utils/employeeLabelGetters";
 
 const ColumnSelector = ({
   columns,
@@ -124,17 +129,26 @@ const EmployeeList = () => {
   const employees = useSelector(selectAllEmployees);
   // columnVisibility: object { accessorKey: true/false }
   const [columnVisibility, setColumnVisibility] = useState({});
+  const [globalFilter, setGlobalFilter] = useState("");
 
   const columns = useMemo(
     () => [
       { accessorKey: "firstName", header: "First Name" },
       { accessorKey: "lastName", header: "Last Name" },
       { accessorKey: "startDate", header: "Start Date" },
-      { accessorKey: "department", header: "Department" },
+      {
+        accessorKey: "department",
+        header: "Department",
+        cell: (info) => getDepartmentLabel(info.getValue()),
+      },
       { accessorKey: "dateOfBirth", header: "Date of Birth" },
       { accessorKey: "street", header: "Street" },
       { accessorKey: "city", header: "City" },
-      { accessorKey: "state", header: "State" },
+      {
+        accessorKey: "state",
+        header: "State",
+        cell: (info) => getStateLabel(info.getValue()),
+      },
       { accessorKey: "zipCode", header: "Zip Code" },
     ],
     [],
@@ -145,9 +159,10 @@ const EmployeeList = () => {
   const table = useReactTable({
     data: employees,
     columns,
-    state: { columnVisibility },
+    state: { columnVisibility, globalFilter },
     onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
   });
 
   return (
@@ -159,7 +174,14 @@ const EmployeeList = () => {
           details.
         </p>
       </div>
-      <div className="mb-6">
+      <div className="mb-6 flex items-center justify-between">
+        <input
+          type="text"
+          placeholder="Search employees..."
+          value={globalFilter}
+          onChange={(e) => setGlobalFilter(e.target.value)}
+          className="focus-visible:ring-primary/30 rounded-lg bg-white px-4 py-2 text-sm font-bold shadow-sm ring-1 ring-gray-300 ring-inset focus:outline-none focus-visible:ring-3"
+        />
         <ColumnSelector
           columns={columns}
           columnVisibility={columnVisibility}

@@ -2,7 +2,7 @@ export { default as EmployeeForm } from "./components/EmployeeForm";
 
 export { useEmployeeForm } from "./hooks/useEmployeeForm";
 
-export { formatEmployeeData } from "./utils/employeeFormatters";
+export { serializeEmployeeForm } from "./utils/serializeEmployeeForm";
 
 export { employeeSchema } from "./validation/employeeSchema";
 

@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { employeeSchema } from "../validation/employeeSchema";
-import { formatEmployeeData } from "../utils/employeeFormatters";
+import { serializeEmployeeForm } from "../utils/serializeEmployeeForm";
 import { addEmployee } from "../slices/employeesSlice";
 
 export const useEmployeeForm = () => {
@@ -31,7 +31,7 @@ export const useEmployeeForm = () => {
   });
 
   const onSubmit = handleSubmit((data) => {
-    const formattedData = formatEmployeeData(data);
+    const formattedData = serializeEmployeeForm(data);
 
     const employeeWithId = { id: nanoid(), ...formattedData };
     dispatch(addEmployee(employeeWithId));
