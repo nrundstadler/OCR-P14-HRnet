@@ -1,4 +1,4 @@
-import { EmployeeForm } from "@/features/employees/";
+import EmployeeForm from "@/features/employees/components/EmployeeForm/EmployeeForm";
 
 const CreateEmployee = () => {
   return (

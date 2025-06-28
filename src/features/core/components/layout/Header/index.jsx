@@ -23,7 +23,11 @@ const Header = () => {
     >
       {/* Logo and site name */}
       <Link className="flex items-center gap-x-1" to="/" aria-label="Home">
-        <img src="/logo.png" alt="Logo HRnet" className="mr-4 h-12 w-12" />
+        <picture className="mr-4 h-12 w-12">
+          <source srcSet="/logo.webp" type="image/webp" />
+          <source srcSet="/logo.png" type="image/png" />
+          <img src="/logo.png" alt="Logo HRnet" width={48} height={48} />
+        </picture>
         <span className="text-xl font-bold text-zinc-600 dark:text-zinc-300">
           Wealth Health
         </span>

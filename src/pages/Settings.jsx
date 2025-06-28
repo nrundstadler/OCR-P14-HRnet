@@ -1,4 +1,5 @@
-import { EmployeeGenerator, EmployeeDeleter } from "@/features/employees";
+import EmployeeGenerator from "@/features/employees/components/EmployeeGenerator/EmployeeGenerator";
+import EmployeeDeleter from "@/features/employees/components/EmployeeDeleter/EmployeeDeleter";
 
 const Settings = () => {
   return (

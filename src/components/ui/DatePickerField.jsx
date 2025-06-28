@@ -70,8 +70,6 @@ const DatePickerField = ({ id, label, value, onChange, error, ...props }) => {
           value={value ? format(value, "yyyy-MM-dd") : ""}
           onClick={openCalendar}
           onFocus={openCalendar}
-          aria-haspopup="dialog"
-          aria-expanded={isOpen}
           aria-label={
             value
               ? "Selected date: " + format(value, "dd MMMM yyyy")

@@ -1,4 +1,4 @@
-import { EmployeeTable } from "@/features/employees";
+import EmployeeTable from "@/features/employees/components/EmployeeTable/EmployeeTable";
 
 const EmployeeList = () => {
   return (
