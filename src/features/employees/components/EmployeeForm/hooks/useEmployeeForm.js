@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { employeeSchema } from "../validation/employeeSchema";
 import { serializeEmployeeForm } from "../utils/serializeEmployeeForm";
-import { addEmployee } from "../slices/employeesSlice";
+import { addEmployee } from "../../../slices/employeesSlice";
 
 export const useEmployeeForm = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
   const dispatch = useDispatch();
 
   const {
@@ -37,14 +39,21 @@ export const useEmployeeForm = () => {
     dispatch(addEmployee(employeeWithId));
 
     reset();
+    setShowSuccess(true);
 
     return formattedData;
   });
 
   return {
-    control,
-    register,
-    errors,
-    onSubmit,
+    form: {
+      control,
+      register,
+      errors,
+      onSubmit,
+    },
+    notification: {
+      showSuccess,
+      hideSuccess: () => setShowSuccess(false),
+    },
   };
 };

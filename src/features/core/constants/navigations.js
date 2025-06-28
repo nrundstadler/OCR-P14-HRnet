@@ -2,7 +2,7 @@ import { Users, UserPlus, Settings } from "lucide-react";
 
 export const NAV_LINKS = [
   {
-    name: "Create an Employee",
+    name: "Create Employee",
     to: "/create-employee",
     icon: UserPlus,
     title: "Create a new employee record",

@@ -14,7 +14,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <div
+    <header
       className={`fixed inset-x-0 top-0 z-50 flex h-18 items-center justify-between px-8 backdrop-blur-sm ${
         isMenuMobileOpen
           ? "bg-white md:bg-white/60 dark:bg-zinc-700"
@@ -63,7 +63,7 @@ const Header = () => {
         {/* Navigation component */}
         <Nav />
       </div>
-    </div>
+    </header>
   );
 };
 

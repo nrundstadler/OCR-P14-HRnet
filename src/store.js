@@ -12,7 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 // Import slices
-import { employeesSlice } from "./features/employees";
+import { employeesSlice } from "./features/employees/";
 import { uiSlice } from "./features/core/";
 
 const persistConfig = {

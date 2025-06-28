@@ -1,5 +1,5 @@
-import { departments } from "../data/departments";
-import { states } from "../data/states";
+import { departments } from "../../../data/departments";
+import { states } from "../../../data/states";
 
 const departmentMap = Object.fromEntries(
   departments.map((d) => [d.value, d.label]),

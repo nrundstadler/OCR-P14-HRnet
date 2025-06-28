@@ -6,10 +6,4 @@ export { useDocumentTitle } from "./hooks/useDocumentTitle";
 export { NAV_LINKS, getTitleByPath } from "./constants/navigations";
 
 // State management
-export {
-  uiSlice,
-  toggleDarkMode,
-  setMenuMobileOpen,
-  selectDarkMode,
-  selectMenuMobileOpen,
-} from "./slices/uiSlice";
+export { uiSlice } from "./slices/uiSlice";

@@ -30,7 +30,7 @@ function App() {
         {/* Overlay displayed when the mobile menu is open */}
         <MobileMenuOverlay />
 
-        <main className="mx-auto w-full max-w-6xl flex-1 px-10 py-18">
+        <main className="mx-auto w-full flex-1 px-10 py-18">
           <Outlet />
         </main>
 

@@ -2,16 +2,17 @@ import Select from "react-select";
 
 const SelectField = ({
   id,
-  label,
+  label = null,
   options = [],
   error,
   value,
   onChange,
+  isSearchable = true,
   ...props
 }) => {
   /* Style react-select components with Tailwind CSS */
   const controlStyles = {
-    base: "border rounded-lg !cursor-pointer",
+    base: "border rounded-lg !cursor-pointer bg-white dark:bg-zinc-700",
     focus: "ring-3 ring-primary/30 dark:ring-primary/70",
     error: "border-red-800",
   };
@@ -28,9 +29,11 @@ const SelectField = ({
 
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <Select
         inputId={id}
         name={id}
@@ -38,7 +41,7 @@ const SelectField = ({
         value={value}
         onChange={onChange}
         className="w-full"
-        isSearchable={true}
+        isSearchable={isSearchable}
         unstyled
         aria-invalid={!!error}
         ariaDescribedBy={error ? `${id}-error` : undefined}

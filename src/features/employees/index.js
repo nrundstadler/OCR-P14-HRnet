@@ -1,19 +1,7 @@
-export { default as EmployeeForm } from "./components/EmployeeForm";
-
-export { useEmployeeForm } from "./hooks/useEmployeeForm";
-
-export { serializeEmployeeForm } from "./utils/serializeEmployeeForm";
-
-export { employeeSchema } from "./validation/employeeSchema";
-
-export { states } from "./data/states";
-export { departments } from "./data/departments";
+export { default as EmployeeForm } from "./components/EmployeeForm/EmployeeForm";
+export { default as EmployeeTable } from "./components/EmployeeTable/EmployeeTable";
+export { default as EmployeeGenerator } from "./components/EmployeeGenerator/EmployeeGenerator";
+export { default as EmployeeDeleter } from "./components/EmployeeDeleter/EmployeeDeleter";
 
 // State management
-export {
-  employeesSlice,
-  addEmployee,
-  addEmployees,
-  removeAllEmployees,
-  selectAllEmployees,
-} from "./slices/employeesSlice";
+export { employeesSlice } from "./slices/employeesSlice";

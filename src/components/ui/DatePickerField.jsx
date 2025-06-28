@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { DayPicker, getDefaultClassNames } from "react-day-picker";
-import { format } from "date-fns";
+import format from "date-fns/format";
 import { Calendar } from "lucide-react";
 import "react-day-picker/dist/style.css";
 

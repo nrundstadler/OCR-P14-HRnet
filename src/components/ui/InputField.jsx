@@ -1,13 +1,15 @@
-const InputField = ({ id, label, type = "text", error, ...props }) => {
+const InputField = ({ id, label = null, type = "text", error, ...props }) => {
   const inputClasses =
-    "w-full rounded-lg border px-3 py-2 focus:ring-3 focus:ring-primary/30 dark:focus:ring-primary/70 focus:outline-none" +
+    "focus:ring-primary/30 dark:focus:ring-primary/70 w-full rounded-lg border bg-white px-3 py-2 focus:ring-3 focus:outline-none dark:bg-zinc-700" +
     (error ? " border-red-800" : "");
 
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
-        {label}
-      </label>
+      {label && (
+        <label htmlFor={id} className="mb-1.5 block text-sm font-medium">
+          {label}
+        </label>
+      )}
       <input
         id={id}
         name={id}

@@ -1,6 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import App from "./App";
-import { Homepage, CreateEmployee, EmployeeList, Settings } from "./pages";
+
+// Remplacer les imports directs par du lazy loading
+const Homepage = lazy(() => import("./pages/Homepage"));
+const CreateEmployee = lazy(() => import("./pages/CreateEmployee"));
+const EmployeeList = lazy(() => import("./pages/EmployeeList"));
+const Settings = lazy(() => import("./pages/Settings"));
 
 export const router = createBrowserRouter([
   {
@@ -9,19 +15,35 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Homepage />,
+        element: (
+          <Suspense>
+            <Homepage />
+          </Suspense>
+        ),
       },
       {
         path: "/create-employee",
-        element: <CreateEmployee />,
+        element: (
+          <Suspense>
+            <CreateEmployee />
+          </Suspense>
+        ),
       },
       {
         path: "/employee-list",
-        element: <EmployeeList />,
+        element: (
+          <Suspense>
+            <EmployeeList />
+          </Suspense>
+        ),
       },
       {
         path: "/settings",
-        element: <Settings />,
+        element: (
+          <Suspense>
+            <Settings />
+          </Suspense>
+        ),
       },
     ],
   },

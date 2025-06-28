@@ -1,4 +1,4 @@
-import { EmployeeForm } from "@/features/employees";
+import { EmployeeForm } from "@/features/employees/";
 
 const CreateEmployee = () => {
   return (
@@ -9,7 +9,9 @@ const CreateEmployee = () => {
           Fill in the form below to create a new employee record.
         </p>
       </div>
-      <EmployeeForm />
+      <section className="m-auto max-w-6xl">
+        <EmployeeForm />
+      </section>
     </div>
   );
 };
