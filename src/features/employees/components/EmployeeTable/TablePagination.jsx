@@ -14,6 +14,9 @@ const TablePagination = ({ table }) => {
     <div className="flex flex-col items-end justify-end gap-4 px-2 py-4 sm:flex-row sm:items-center sm:gap-10">
       <div className="flex items-center gap-2">
         Rows per page :
+        <label htmlFor="pagination-size" className="sr-only">
+          Pagination size
+        </label>
         <SelectField
           id="pagination-size"
           options={[

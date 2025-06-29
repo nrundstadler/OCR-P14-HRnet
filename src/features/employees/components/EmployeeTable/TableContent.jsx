@@ -18,7 +18,7 @@ const TableContent = ({ table }) => (
                   onClick={header.column.getToggleSortingHandler()}
                   aria-pressed={!!header.column.getIsSorted()}
                   tabIndex={0}
-                  aria-sort={
+                  aria-label={
                     header.column.getIsSorted() === "asc"
                       ? "ascending"
                       : header.column.getIsSorted() === "desc"
