@@ -1,5 +1,6 @@
 import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 
+// createEntityAdapter helps manage a list of employees in Redux state
 const employeesAdapter = createEntityAdapter();
 const initialState = employeesAdapter.getInitialState();
 

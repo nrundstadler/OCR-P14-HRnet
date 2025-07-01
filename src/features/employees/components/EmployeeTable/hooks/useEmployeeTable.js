@@ -15,7 +15,10 @@ import {
 import { selectAllEmployees } from "../../../slices/employeesSlice";
 
 const useEmployeeTable = () => {
+  // Get all employees from Redux state
   const employees = useSelector(selectAllEmployees);
+
+  // State for table features
   const [columnVisibility, setColumnVisibility] = useState({});
   const [globalFilter, setGlobalFilter] = useState("");
   const [sorting, setSorting] = useState([]);
@@ -25,6 +28,7 @@ const useEmployeeTable = () => {
     pageSize: 10,
   });
 
+  // Define table columns
   const columns = useMemo(
     () => [
       { accessorKey: "firstName", header: "First Name" },
@@ -33,6 +37,7 @@ const useEmployeeTable = () => {
       {
         accessorKey: "department",
         header: "Department",
+        // Show department label instead of raw value
         cell: (info) => getDepartmentLabel(info.getValue()),
       },
       { accessorKey: "dateOfBirth", header: "Date of Birth" },
@@ -41,6 +46,7 @@ const useEmployeeTable = () => {
       {
         accessorKey: "state",
         header: "State",
+        // Show state label instead of raw value
         cell: (info) => getStateLabel(info.getValue()),
       },
       { accessorKey: "zipCode", header: "Zip Code" },
@@ -48,8 +54,10 @@ const useEmployeeTable = () => {
     [],
   );
 
+  // Columns that can't be hidden
   const lockedColumns = ["firstName", "lastName"];
 
+  // Create the table instance with all features
   const table = useReactTable({
     data: employees,
     columns,

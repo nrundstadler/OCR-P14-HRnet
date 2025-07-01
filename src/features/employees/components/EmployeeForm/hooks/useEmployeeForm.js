@@ -11,6 +11,7 @@ export const useEmployeeForm = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const dispatch = useDispatch();
 
+  // useForm sets up form state and validation using react-hook-form and yup
   const {
     handleSubmit,
     control,
@@ -18,7 +19,7 @@ export const useEmployeeForm = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(employeeSchema),
+    resolver: yupResolver(employeeSchema), // yupResolver connects Yup validation schema to the form
     defaultValues: {
       firstName: "",
       lastName: "",

@@ -20,15 +20,18 @@ const persistConfig = {
   storage,
 };
 
+// Combine all reducers into a single root reducer
 const rootReducer = combineReducers({
   employees: employeesSlice.reducer,
   ui: uiSlice.reducer,
 });
 
+// Wrap the root reducer with persistReducer to enable state persistence in localStorage
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  // Configure middleware to ignore redux-persist actions in serializable checks
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -37,5 +40,7 @@ export const store = configureStore({
     }),
 });
 
+// Create the persistor, which will synchronize the Redux store with localStorage
 export const persistor = persistStore(store);
+
 export default store;
