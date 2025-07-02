@@ -5,7 +5,8 @@ import {
   selectAllEmployees,
 } from "../../slices/employeesSlice";
 import { selectDarkMode } from "@/features/core/slices/uiSlice";
-import { Button, Modal } from "@/components/ui/";
+import { Button } from "@/components/ui/";
+import { Modal } from "nr-modal-react";
 
 const EmployeeDeleter = () => {
   const [isErasing, setIsErasing] = useState(false);

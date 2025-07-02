@@ -5,14 +5,13 @@ import { states } from "../../data/states";
 import { departments } from "../../data/departments";
 import { useEmployeeForm } from "./hooks/useEmployeeForm";
 import { selectDarkMode } from "@/features/core/slices/uiSlice";
-
 import {
   Button,
   InputField,
   SelectField,
   DatePickerField,
-  Modal,
 } from "@/components/ui/";
+import { Modal } from "nr-modal-react";
 
 const EmployeeForm = () => {
   const stateOptions = formatForSelect(states, "abbreviation", "name");

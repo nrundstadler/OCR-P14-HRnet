@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addEmployees } from "../../slices/employeesSlice";
 import { generateFakeEmployees } from "./utils/generateFakeEmployees";
 import { selectDarkMode } from "@/features/core/slices/uiSlice";
-import { Button, InputField, Modal } from "@/components/ui/";
+import { Button, InputField } from "@/components/ui/";
+import { Modal } from "nr-modal-react";
 
 const EmployeeGenerator = () => {
   const [count, setCount] = useState(10);
