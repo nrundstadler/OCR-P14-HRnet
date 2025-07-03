@@ -1,4 +1,11 @@
-# Projet 14 : Hrnet (conversion d'une appli jQuery en React)
+# HRnet - Conversion jQuery vers React | jQuery to React conversion
+
+- [Version française](#version-francaise)
+- [English version](#english-version)
+
+---
+
+<a name="version-francaise"></a>
 
 14ème projet de la formation "Développeur d'application JavaScript React" d'OpenClassrooms.
 
@@ -80,5 +87,94 @@ npm run build
 npm run preview
 
 # Vérification du code
+npm run lint
+```
+
+---
+
+<a name="english-version"></a>
+
+# Project 14: HRnet (jQuery to React conversion)
+
+14th project of the "JavaScript React Application Developer" training by OpenClassrooms.
+
+🔗 [See the application online](https://ocr-p14-h-rnet.vercel.app/)
+
+## Project context
+
+WealthHealth uses an internal application called HRnet to manage employee records. Developed in jQuery, this application has been the source of many bugs, especially with date pickers, modal windows, dropdown menus, and tables.
+
+Given this situation, management approved a complete redesign of the application in React.
+
+## Achieved objectives
+
+### ✅ Complete conversion to React
+
+- Migration from jQuery to React 19
+- SPA navigation with React Router DOM
+- Centralized state management with Redux Toolkit
+- Light/dark theme system
+- Greatly improved responsive design
+
+### ✅ jQuery plugins replacement
+
+- **Modal window**: [`nr-modal-react`](https://www.npmjs.com/package/nr-modal-react) (developed and published package)
+- **Date picker**: `React Day Picker`
+- **Dropdown menu**: `React Select`
+- **Data table**: `TanStack Table`
+
+### ✅ Performance tests
+
+Lighthouse audits performed on both versions. Summary of these audits here: [`doc/migration-performance-report_fr.md`](doc/migration-performance-report_en.md).
+
+## Technologies used
+
+### Frontend
+
+- **React 19**
+- **Redux Toolkit** - State management
+- **Redux Persist** - Automatic persistence
+- **React Router DOM** - SPA navigation
+- **React Hook Form** + **Yup** - Form management
+
+### UI/UX
+
+- **Tailwind CSS 4** - Utility CSS framework
+- **Lucide React** - Modern icons
+
+### Tools
+
+- **Vite** - Build tool and dev server
+- **ESLint** + **Prettier** - Code quality
+- **Faker.js** - Data generation
+
+## Installation and usage
+
+### Getting the project
+
+```bash
+# Clone the repository from GitHub
+git clone https://github.com/nrundstadler/OCR-P14-HRnet.git
+
+# Navigate to the project folder
+cd OCR-P14-HRnet
+```
+
+### Available commands
+
+```bash
+# Install dependencies
+npm install
+
+# Launch in development
+npm run dev
+
+# Production build
+npm run build
+
+# Preview the build
+npm run preview
+
+# Code verification
 npm run lint
 ```
